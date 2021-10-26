@@ -1,0 +1,24 @@
+This program is a tool which accepts hexadecimal values representing MIPS instructions
+on stdin and produce some information about these instructions on stdout. 
+
+The output is formatted in such a way that it can be piped to tools such as grep , sort , etc. 
+This program will also accept command line arguments that will adjust the type of information that 
+is printed to stdout. 
+
+When given the command line flag -i the program will produce simple statistics in the following
+format. Each line will contain the instruction type, the count of this instruction type given in the input, and
+the percentage of this instruction type (based on the total number of instructions provided in the input).
+
+When given the command line flag -r the program should list out the statistics of each register. There is
+a column for how many times it was used in total, how many R-type instructions used it, how many I-type
+instructions used it, how many J-type instructions used it, and the percentage of times the register was 
+being used based on all the other registers.
+
+When given the command line flag -o the program should list out the statistics of each opcode used.
+There are 64 (2^6) different opcodes. This program also tracks the number of times an opcode is used and
+the percentage used in the entire program. 
+
+For the instructions with opcode 0x00 , also known as R-type
+instructions, the function field is additionally used to specify the instruction. The function field is 6-bits,
+enabling 64 (2^6) additional instructions. This program also keeps track of the function field and its usage
+percentage with respect to the total number of instructions with opcode 0x00. 
